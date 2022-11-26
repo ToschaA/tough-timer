@@ -1,0 +1,7 @@
+{
+  "name": "Tough Timer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
