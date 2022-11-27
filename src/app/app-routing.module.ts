@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'active',
+    loadChildren: () => import('./active/active.module').then( m => m.ActivePageModule)
+  },
+  {
+    path: 'done',
+    loadChildren: () => import('./modals/done/done.module').then( m => m.DonePageModule)
+  },
 ];
 
 @NgModule({
