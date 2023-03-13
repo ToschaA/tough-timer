@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import * as moment from 'moment';
+import { TimerState } from '../models/timerState.model';
 import { TimerService } from '../services/timer.service';
+import * as moment from 'moment';
+import { MiscellaneousService } from '../services/miscellaneous.service';
+
 
 @Component({
   selector: 'app-active',
@@ -10,20 +13,39 @@ import { TimerService } from '../services/timer.service';
 })
 export class ActivePage implements OnInit {
 
+  timerState: TimerState = 0;
+  timeLeft: number = 0;
+  timeString: string = "";
+
   constructor(
     private timerService: TimerService,
-    private navController: NavController,
+    private miscellaneousService: MiscellaneousService,
   ) { }
+
+  ionViewWillEnter() {
+    this.timerService.timerStateSub.subscribe(async (state) => {
+      this.timerState = state;
+
+      if(this.timerState === TimerState.RUNNING) {
+        this.timerService.getTimeLeft().subscribe(time => {
+          this.timeLeft = time;
+          this.timeString = this.timerService.momentDiff.format("mm:ss");
+        });
+      } 
+    });
+    
+  }
 
   ngOnInit() {
     
   }
 
-  ionViewDidEnter() {
-    
+  stopTimer() {
+    this.timerService.stopTimer();
   }
 
-  stopTimer() {
+
+  showAsFinished() {
     
   }
 }

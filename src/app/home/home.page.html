@@ -3,6 +3,32 @@
 
 <ion-content [fullscreen]="true">
 
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text class="page-header">Pick a time!</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <form #form="ngForm">
+          <!-- Minutes input -->
+          <ion-item>
+            <ion-label>Minutes</ion-label>
+            <ion-input ngModel name="minutes" class="time-input" type="tel" value="0" maxlength="2" required></ion-input>
+          </ion-item>
+          
+          <!-- Seconds input-->
+          <ion-item>
+            <ion-label>Seconds</ion-label>
+            <ion-input ngModel name="seconds" class="time-input" type="tel" value="20" maxlength="2" required></ion-input>
+          </ion-item>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
   <ion-button id="start-button" (click)="startTimer()">Start timer</ion-button>
   
 </ion-content>

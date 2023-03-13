@@ -1,13 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>active</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
-  <ion-label id="time-left-label">
-    <ion-text>25</ion-text>
-  </ion-label>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-label id="time-left-label">
+          <ion-text>{{ timeString }}</ion-text><br>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <ion-button (click)="stopTimer()">Stop</ion-button>
+  
+
+  <ion-button id="end-button" (click)="stopTimer()" *ngIf="timerState === 0" fill="icon-only">
+    <ion-icon name="close" color="danger"></ion-icon>
+  </ion-button>
 </ion-content>

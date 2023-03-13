@@ -12,9 +12,12 @@ export class MiscellaneousService {
     private toastController: ToastController,
   ) { }
 
-  showDoneModal() {
+  showDoneModal(timeElapsed: any) {
     this.modalController.create({
       component: DonePage,
+      componentProps: {
+        timeElapsed: timeElapsed,
+      }
     }).then(modalElement => {
       modalElement.present();
     });
@@ -28,7 +31,7 @@ export class MiscellaneousService {
 
     // error: the duration is too short
     if(code === "duration-too-short") {
-      message = "The duration has to be longer than " + additionalData.minDurationAllowedInSeconds + " seconds";
+      message = "The duration has to be longer than " + additionalData.minOriginDurationAllowedInSeconds + " seconds";
     }
 
 

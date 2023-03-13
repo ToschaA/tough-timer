@@ -1,9 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>done</ion-title>
+    <ion-button (click)="close()" fill="icon-only" expand="block">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text class="page-header">Great Work! You just got tougher.</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text class="page-label">Time Elapsed</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text class="page-sub-header">{{ timeElapsedString }}</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,14 @@
+
+#time-left-label {
+    font-size: 4rem;
+}
+
+#end-button {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    ion-icon {
+        font-size: 5rem;
+    }
+}
